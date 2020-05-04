@@ -5,7 +5,7 @@ class Shoal(models.Model):
     password = models.CharField(max_length=128)
     description = models.CharField(max_length=2048)
     icon_url = models.CharField(max_length=1028)
-    max_size =  models.IntegerField()
+    max_size =  models.IntegerField(default=64)
 
     def __str__(self):
         return self.name
