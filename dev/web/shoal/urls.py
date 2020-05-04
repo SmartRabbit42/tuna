@@ -2,6 +2,9 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
+    # /shoal/
     path('', views.index, name='index'),
-    path('add_fish', views.add_fish, name='add_fish'),
+
+    # /shoal/48163264/
+    path('<int:shoal_id>/', views.shoal, name='shoal'),
 ]
