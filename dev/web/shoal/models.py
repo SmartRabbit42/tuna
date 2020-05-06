@@ -12,10 +12,10 @@ class Shoal(models.Model):
 
 class Fish(models.Model):
     shoal = models.ForeignKey(Shoal, on_delete=models.CASCADE)
-    status = models.IntegerField()
-    scalecolor = models.IntegerField()
+    status = models.IntegerField(default=0)
+    scalecolor = models.IntegerField(default=0)
     displayname = models.CharField(max_length=64)
     icon_url = models.CharField(max_length=1028)
 
     def __str__(self):
-        return "{0} from {1} shoal".format(self.displayname, self.shoal.name)
+        return 'fish "{0}" from "{1}" shoal'.format(self.displayname, self.shoal.name)
