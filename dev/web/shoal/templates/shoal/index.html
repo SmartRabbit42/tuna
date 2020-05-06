@@ -1,15 +1,20 @@
-fish are stronger in a shoal,<br>
-what are you waiting for?<br><br>
+{% load static %}
+<link rel="stylesheet" href="{% static 'shoal/style.css' %}" />
 
-<form action="#" method="get">
+<p>fish are stronger in a shoal,<br>
+what are you waiting for?<br></p>
+
+<form action="{% url 'shoal:join' %}" method="post">
+  {% csrf_token %}
   <input type="text" name="shoal_id" size="16"/>
-  <input type="submit" value="join" name="join">
+  <input type="submit" value="join">
 </form>
 
-cant find any? create one,<br>
-some will surelly follow.<br><br>
+<p>cant find any? create one,<br>
+some will surelly follow.<br></p>
 
-<form action="#" method="get">
+<form action="{% url 'shoal:create' %}" method="post">
+  {% csrf_token %}
   <input type="text" name="shoal_name" size="16"/>
-  <input type="submit" value="create" name="create">
+  <input type="submit" value="create">
 </form>

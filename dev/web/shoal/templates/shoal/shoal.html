@@ -1,9 +1,13 @@
-let the shoal begin<br>
-name:{{ shoal_name }}<br>
-description:{{ shoal_description }}<br>
-fishs:<br>
+{% load static %}
+<link rel="stylesheet" href="{% static 'shoal/style.css' %}" />
+
+<h1> {{ shoal.name }} </h1>
+<h3> {{ shoal.description }} </h3>
+
 <ul>
-  {% for fish in fishs %}
-  <li>{{fish}}</li>
+  {% for fish in shoal.fish_set.all %}
+  <li><h4>{{fish}}</h4></li>
   {% endfor %}
 </ul>
+
+<img src="{{ shoal.icon_url }}">
