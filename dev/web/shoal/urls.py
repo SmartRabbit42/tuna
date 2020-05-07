@@ -15,4 +15,7 @@ urlpatterns = [
 
     # /shoal/create/
     path('create/', views.create, name='create'),
+
+    # /shoal/add/
+    path('add/', views.ShoalCreate.as_view(), name='shoal-add'),
 ]

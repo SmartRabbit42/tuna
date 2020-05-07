@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.views.generic.edit import CreateView, UpdateView
 from .models import Shoal, Fish
 
 def index(request):
@@ -17,3 +18,7 @@ def create(request):
 def join(request):
     shoal_id = request.POST['shoal_id']
     return redirect('shoal:shoal', shoal_id)
+
+class ShoalCreate(CreateView):
+    model = Shoal
+    fields = ['name', 'password', 'description', 'icon_url', 'max_size']

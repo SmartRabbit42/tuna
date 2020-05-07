@@ -1,0 +1,11 @@
+{% extends 'shoal/base.html' %}
+
+{% block body %}
+
+<form class="" action="" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {% include 'shoal/form-template.html' %}
+  <button type="submit" name="button">Submit</button>
+</form>
+
+{% endblock %}

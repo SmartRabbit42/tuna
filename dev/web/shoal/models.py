@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 class Shoal(models.Model):
     name = models.CharField(max_length=64)
@@ -6,6 +7,9 @@ class Shoal(models.Model):
     description = models.CharField(max_length=2048)
     icon_url = models.CharField(max_length=1028)
     max_size =  models.IntegerField(default=64)
+
+    def get_absolute_url(self):
+        return reverse('shoal:shoal', args=[self.id])
 
     def __str__(self):
         return self.name
