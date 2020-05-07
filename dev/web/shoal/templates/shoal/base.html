@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title> {% block title %} Tuna {% endblock %} </title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'shoal/style.css' %}" />
+  </head>
+  <body>
+      <h1> Header </h1>
+      <a href="{% url 'shoal:shoal-add' %}"> add shoal </a>
+
+      {% block body %}
+      {% endblock %}
+  </body>
+</html>

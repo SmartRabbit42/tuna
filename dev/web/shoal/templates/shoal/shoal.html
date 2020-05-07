@@ -1,13 +1,15 @@
-{% load static %}
-<link rel="stylesheet" href="{% static 'shoal/style.css' %}" />
+{% extends 'shoal/base.html' %}
+{% block title %} {{ shoal.name }} {% endblock %}
 
-<h1> {{ shoal.name }} </h1>
-<h3> {{ shoal.description }} </h3>
+{% block body %}
+  <h1> {{ shoal.name }} </h1>
+  <h3> {{ shoal.description }} </h3>
 
-<ul>
-  {% for fish in shoal.fish_set.all %}
-  <li><h4>{{fish}}</h4></li>
-  {% endfor %}
-</ul>
+  <ul>
+    {% for fish in shoal.fish_set.all %}
+    <li><h4>{{fish}}</h4></li>
+    {% endfor %}
+  </ul>
 
-<img src="{{ shoal.icon_url }}">
+  <img src="{{ shoal.icon_url }}">
+{% endblock %}

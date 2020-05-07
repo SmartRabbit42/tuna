@@ -1,20 +1,21 @@
-{% load static %}
-<link rel="stylesheet" href="{% static 'shoal/style.css' %}" />
+{% extends 'shoal/base.html' %}
 
-<p>fish are stronger in a shoal,<br>
-what are you waiting for?<br></p>
+{% block body %}
+  <p>fish are stronger in a shoal,<br>
+  what are you waiting for?<br></p>
 
-<form action="{% url 'shoal:join' %}" method="post">
-  {% csrf_token %}
-  <input type="text" name="shoal_id" size="16"/>
-  <input type="submit" value="join">
-</form>
+  <form action="{% url 'shoal:join' %}" method="post">
+    {% csrf_token %}
+    <input type="text" name="shoal_id" size="16"/>
+    <input type="submit" value="join">
+  </form>
 
-<p>cant find any? create one,<br>
-some will surelly follow.<br></p>
+  <p>cant find any? create one,<br>
+  some will surelly follow.<br></p>
 
-<form action="{% url 'shoal:create' %}" method="post">
-  {% csrf_token %}
-  <input type="text" name="shoal_name" size="16"/>
-  <input type="submit" value="create">
-</form>
+  <form action="{% url 'shoal:create' %}" method="post">
+    {% csrf_token %}
+    <input type="text" name="shoal_name" size="16"/>
+    <input type="submit" value="create">
+  </form>
+{% endblock %}
